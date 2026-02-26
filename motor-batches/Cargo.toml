@@ -1,0 +1,26 @@
+[package]
+name = "motor_batches"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "motor_batches"
+crate-type = ["cdylib"]
+
+[dependencies]
+# Puente entre Rust y Python optimizado para 3.14
+pyo3 = { version = "0.21", features = ["extension-module"] }
+
+# Motor de tensores con soporte de serialización
+ndarray = { version = "0.15", features = ["serde"] }
+
+# Interoperabilidad NumPy
+numpy = "0.21"
+
+# Generación de pesos aleatorios
+ndarray-rand = "0.14"
+rand_distr = "0.4"
+
+# Persistencia y serialización JSON (Una sola entrada)
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
