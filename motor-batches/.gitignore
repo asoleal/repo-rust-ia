@@ -1,0 +1,7 @@
+target/
+.venv/
+__pycache__/
+*.json
+*.whl
+dist/
+Cargo.lock
