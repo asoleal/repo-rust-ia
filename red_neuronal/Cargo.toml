@@ -1,0 +1,18 @@
+[package]
+name = "red_neuronal"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "red_neuronal"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.20.0", features = ["extension-module"] }
+# ndarray con soporte para serialización
+ndarray = { version = "0.15", features = ["serde"] }
+# Necesario para inicializar pesos aleatorios
+ndarray-rand = "0.14"
+rand = "0.8"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
