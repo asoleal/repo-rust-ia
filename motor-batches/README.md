@@ -24,3 +24,15 @@ Para correr este proyecto sin configurar dependencias:
 docker build -t asoleal/motor-rust-ia:v1 .
 docker run --rm asoleal/motor-rust-ia:v1
 \`\`\`
+
+## 📖 Guía de Uso Rápido
+
+El motor está diseñado para ser invocado desde Python, delegando toda la carga pesada (álgebra lineal y retropropagación) a los binarios compilados de Rust.
+
+### 1. Inicialización de la Red
+Define la estructura de capas (neuronas) y la tasa de aprendizaje (*Learning Rate*):
+```python
+import motor_batches as nb
+
+# Ejemplo: Entrada de 2, Capa oculta de 4, Salida de 1
+red = nb.RedBatched([2, 4, 1], 0.05)
