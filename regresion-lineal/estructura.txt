@@ -1,0 +1,450 @@
+.
+├── Cargo.lock
+├── Cargo.toml
+├── estructura.txt
+├── genera-datos.py
+├── prueba.py
+├── src
+│   └── lib.rs
+└── target
+    ├── CACHEDIR.TAG
+    └── debug
+        ├── build
+        │   ├── crossbeam-utils-8247c1ba485a304f
+        │   │   ├── invoked.timestamp
+        │   │   ├── out
+        │   │   ├── output
+        │   │   ├── root-output
+        │   │   └── stderr
+        │   ├── crossbeam-utils-90212a47424a6c67
+        │   │   ├── build-script-build
+        │   │   ├── build_script_build-90212a47424a6c67
+        │   │   └── build_script_build-90212a47424a6c67.d
+        │   ├── libc-69574666e7981d87
+        │   │   ├── invoked.timestamp
+        │   │   ├── out
+        │   │   ├── output
+        │   │   ├── root-output
+        │   │   └── stderr
+        │   ├── libc-d93b836d66d4c3c4
+        │   │   ├── build-script-build
+        │   │   ├── build_script_build-d93b836d66d4c3c4
+        │   │   └── build_script_build-d93b836d66d4c3c4.d
+        │   ├── memoffset-2d8cf2c18ddf55a7
+        │   │   ├── build-script-build
+        │   │   ├── build_script_build-2d8cf2c18ddf55a7
+        │   │   └── build_script_build-2d8cf2c18ddf55a7.d
+        │   ├── memoffset-d365e6f2c95e7d58
+        │   │   ├── invoked.timestamp
+        │   │   ├── out
+        │   │   ├── output
+        │   │   ├── root-output
+        │   │   └── stderr
+        │   ├── parking_lot_core-9e6d734a2c639a66
+        │   │   ├── invoked.timestamp
+        │   │   ├── out
+        │   │   ├── output
+        │   │   ├── root-output
+        │   │   └── stderr
+        │   ├── parking_lot_core-fec74986131a3e4b
+        │   │   ├── build-script-build
+        │   │   ├── build_script_build-fec74986131a3e4b
+        │   │   └── build_script_build-fec74986131a3e4b.d
+        │   ├── portable-atomic-3ea2ae6e0ecf90f1
+        │   │   ├── invoked.timestamp
+        │   │   ├── out
+        │   │   ├── output
+        │   │   ├── root-output
+        │   │   └── stderr
+        │   ├── portable-atomic-ddff9bbf57c6b9f6
+        │   │   ├── build-script-build
+        │   │   ├── build_script_build-ddff9bbf57c6b9f6
+        │   │   └── build_script_build-ddff9bbf57c6b9f6.d
+        │   ├── proc-macro2-51e41d5873be4619
+        │   │   ├── invoked.timestamp
+        │   │   ├── out
+        │   │   ├── output
+        │   │   ├── root-output
+        │   │   └── stderr
+        │   ├── proc-macro2-5cdd1a3321e372d6
+        │   │   ├── build-script-build
+        │   │   ├── build_script_build-5cdd1a3321e372d6
+        │   │   └── build_script_build-5cdd1a3321e372d6.d
+        │   ├── pyo3-1fc6ba36b8ef88c3
+        │   │   ├── invoked.timestamp
+        │   │   ├── out
+        │   │   ├── output
+        │   │   ├── root-output
+        │   │   └── stderr
+        │   ├── pyo3-build-config-9618c433786d9ca1
+        │   │   ├── build-script-build
+        │   │   ├── build_script_build-9618c433786d9ca1
+        │   │   └── build_script_build-9618c433786d9ca1.d
+        │   ├── pyo3-build-config-e6ec56aea403b6b0
+        │   │   ├── invoked.timestamp
+        │   │   ├── out
+        │   │   │   ├── pyo3-build-config-file.txt
+        │   │   │   └── pyo3-build-config.txt
+        │   │   ├── output
+        │   │   ├── root-output
+        │   │   └── stderr
+        │   ├── pyo3-c327a7bcd7da387d
+        │   │   ├── build-script-build
+        │   │   ├── build_script_build-c327a7bcd7da387d
+        │   │   └── build_script_build-c327a7bcd7da387d.d
+        │   ├── pyo3-ffi-484cfeb80c5042cb
+        │   │   ├── build-script-build
+        │   │   ├── build_script_build-484cfeb80c5042cb
+        │   │   └── build_script_build-484cfeb80c5042cb.d
+        │   ├── pyo3-ffi-e843dec5fc6fc40f
+        │   │   ├── invoked.timestamp
+        │   │   ├── out
+        │   │   ├── output
+        │   │   ├── root-output
+        │   │   └── stderr
+        │   ├── quote-6e9809c909a5e12f
+        │   │   ├── build-script-build
+        │   │   ├── build_script_build-6e9809c909a5e12f
+        │   │   └── build_script_build-6e9809c909a5e12f.d
+        │   ├── quote-e6b3ea2641c16ca7
+        │   │   ├── invoked.timestamp
+        │   │   ├── out
+        │   │   ├── output
+        │   │   ├── root-output
+        │   │   └── stderr
+        │   ├── rayon-core-62753ae4fc53848b
+        │   │   ├── build-script-build
+        │   │   ├── build_script_build-62753ae4fc53848b
+        │   │   └── build_script_build-62753ae4fc53848b.d
+        │   ├── rayon-core-b8bb77b78cb319ca
+        │   │   ├── invoked.timestamp
+        │   │   ├── out
+        │   │   ├── output
+        │   │   ├── root-output
+        │   │   └── stderr
+        │   ├── target-lexicon-75f4b03699fcc2d9
+        │   │   ├── invoked.timestamp
+        │   │   ├── out
+        │   │   │   └── host.rs
+        │   │   ├── output
+        │   │   ├── root-output
+        │   │   └── stderr
+        │   └── target-lexicon-9008225ade7c11b6
+        │       ├── build-script-build
+        │       ├── build_script_build-9008225ade7c11b6
+        │       └── build_script_build-9008225ade7c11b6.d
+        ├── deps
+        │   ├── autocfg-e43f4f6a57543659.d
+        │   ├── cfg_if-43f8c950438ad461.d
+        │   ├── crossbeam_deque-e794be6bbd470932.d
+        │   ├── crossbeam_epoch-ed762910fe6db662.d
+        │   ├── crossbeam_utils-eb5df3d9bec927fd.d
+        │   ├── either-7a44a994a69cc5ee.d
+        │   ├── heck-47b6b20ab647db87.d
+        │   ├── indoc-e01c401d973e93b0.d
+        │   ├── libautocfg-e43f4f6a57543659.rlib
+        │   ├── libautocfg-e43f4f6a57543659.rmeta
+        │   ├── libc-837a1c54b1156808.d
+        │   ├── libcfg_if-43f8c950438ad461.rlib
+        │   ├── libcfg_if-43f8c950438ad461.rmeta
+        │   ├── libcrossbeam_deque-e794be6bbd470932.rlib
+        │   ├── libcrossbeam_deque-e794be6bbd470932.rmeta
+        │   ├── libcrossbeam_epoch-ed762910fe6db662.rlib
+        │   ├── libcrossbeam_epoch-ed762910fe6db662.rmeta
+        │   ├── libcrossbeam_utils-eb5df3d9bec927fd.rlib
+        │   ├── libcrossbeam_utils-eb5df3d9bec927fd.rmeta
+        │   ├── libeither-7a44a994a69cc5ee.rlib
+        │   ├── libeither-7a44a994a69cc5ee.rmeta
+        │   ├── libheck-47b6b20ab647db87.rlib
+        │   ├── libheck-47b6b20ab647db87.rmeta
+        │   ├── libindoc-e01c401d973e93b0.so
+        │   ├── liblibc-837a1c54b1156808.rlib
+        │   ├── liblibc-837a1c54b1156808.rmeta
+        │   ├── liblock_api-56202e6727c2ce82.rlib
+        │   ├── liblock_api-56202e6727c2ce82.rmeta
+        │   ├── libmemoffset-2f9e1e4af7c4295d.rlib
+        │   ├── libmemoffset-2f9e1e4af7c4295d.rmeta
+        │   ├── libonce_cell-8d8f0f4e9d9a1d14.rlib
+        │   ├── libonce_cell-8d8f0f4e9d9a1d14.rmeta
+        │   ├── libparking_lot-4fc0ced633b0dc9b.rlib
+        │   ├── libparking_lot-4fc0ced633b0dc9b.rmeta
+        │   ├── libparking_lot_core-f0f66123fff213e9.rlib
+        │   ├── libparking_lot_core-f0f66123fff213e9.rmeta
+        │   ├── libportable_atomic-987b16fa605ae7cf.rlib
+        │   ├── libportable_atomic-987b16fa605ae7cf.rmeta
+        │   ├── libproc_macro2-d8671c29560d99ab.rlib
+        │   ├── libproc_macro2-d8671c29560d99ab.rmeta
+        │   ├── libpyo3-0972b99aeae25ea6.rlib
+        │   ├── libpyo3-0972b99aeae25ea6.rmeta
+        │   ├── libpyo3_build_config-99673acf0a88a3a0.rlib
+        │   ├── libpyo3_build_config-99673acf0a88a3a0.rmeta
+        │   ├── libpyo3_ffi-02d33db7ace9bd68.rlib
+        │   ├── libpyo3_ffi-02d33db7ace9bd68.rmeta
+        │   ├── libpyo3_macros-67668dcd6427d5d5.so
+        │   ├── libpyo3_macros_backend-fda7bedec56142eb.rlib
+        │   ├── libpyo3_macros_backend-fda7bedec56142eb.rmeta
+        │   ├── libquote-a555849ff2f7b847.rlib
+        │   ├── libquote-a555849ff2f7b847.rmeta
+        │   ├── librayon-6140d9bbdfd46b53.rlib
+        │   ├── librayon-6140d9bbdfd46b53.rmeta
+        │   ├── librayon_core-cc026190948efc51.rlib
+        │   ├── librayon_core-cc026190948efc51.rmeta
+        │   ├── libregresion_lineal.so
+        │   ├── libscopeguard-eba723b2b8e43bcd.rlib
+        │   ├── libscopeguard-eba723b2b8e43bcd.rmeta
+        │   ├── libsmallvec-78c0474d2b4bf077.rlib
+        │   ├── libsmallvec-78c0474d2b4bf077.rmeta
+        │   ├── libsyn-df10645364556301.rlib
+        │   ├── libsyn-df10645364556301.rmeta
+        │   ├── libtarget_lexicon-624453a49577fa0f.rlib
+        │   ├── libtarget_lexicon-624453a49577fa0f.rmeta
+        │   ├── libunicode_ident-164f4fff5f8dc114.rlib
+        │   ├── libunicode_ident-164f4fff5f8dc114.rmeta
+        │   ├── libunindent-cfdb592b835d46a8.rlib
+        │   ├── libunindent-cfdb592b835d46a8.rmeta
+        │   ├── lock_api-56202e6727c2ce82.d
+        │   ├── memoffset-2f9e1e4af7c4295d.d
+        │   ├── once_cell-8d8f0f4e9d9a1d14.d
+        │   ├── parking_lot-4fc0ced633b0dc9b.d
+        │   ├── parking_lot_core-f0f66123fff213e9.d
+        │   ├── portable_atomic-987b16fa605ae7cf.d
+        │   ├── proc_macro2-d8671c29560d99ab.d
+        │   ├── pyo3-0972b99aeae25ea6.d
+        │   ├── pyo3_build_config-99673acf0a88a3a0.d
+        │   ├── pyo3_ffi-02d33db7ace9bd68.d
+        │   ├── pyo3_macros-67668dcd6427d5d5.d
+        │   ├── pyo3_macros_backend-fda7bedec56142eb.d
+        │   ├── quote-a555849ff2f7b847.d
+        │   ├── rayon-6140d9bbdfd46b53.d
+        │   ├── rayon_core-cc026190948efc51.d
+        │   ├── regresion_lineal-4c44aba1249eb9ad
+        │   ├── regresion_lineal-4c44aba1249eb9ad.d
+        │   ├── regresion_lineal.d
+        │   ├── scopeguard-eba723b2b8e43bcd.d
+        │   ├── smallvec-78c0474d2b4bf077.d
+        │   ├── syn-df10645364556301.d
+        │   ├── target_lexicon-624453a49577fa0f.d
+        │   ├── unicode_ident-164f4fff5f8dc114.d
+        │   └── unindent-cfdb592b835d46a8.d
+        ├── examples
+        ├── incremental
+        │   ├── regresion_lineal-036f4bkq0pd0m
+        │   │   ├── s-hg4xnvl7ay-15yh4km-1vqo852iwx1n2aigbr8ort0x9
+        │   │   │   ├── 08yxlftn0ub42qt837q5huv7c.o
+        │   │   │   ├── 09yi1irzzh6yotmcrczfyonnz.o
+        │   │   │   ├── 0h3m4bjgn6hv3dbh7nkk973ca.o
+        │   │   │   ├── 0rekypkkrlb83o5ur51h3texi.o
+        │   │   │   ├── 0ua6ghp20hbimexnf35vt070z.o
+        │   │   │   ├── 0yhq9ma7cz63vaev3wkgt0t8m.o
+        │   │   │   ├── 14w56brw2h167oqdke964pp81.o
+        │   │   │   ├── 17xu728uuezz5cgpbnkresl1d.o
+        │   │   │   ├── 1d46uo5quxo9vem0z7tqckblx.o
+        │   │   │   ├── 1jrchqckkfxqpe8kf8rwqnnwp.o
+        │   │   │   ├── 26es2rnp1s7dd9z4bcqbxcqmn.o
+        │   │   │   ├── 27ugcxsxxubsyyux4b0t738h1.o
+        │   │   │   ├── 2greiny7vg4813t5wyhannyuw.o
+        │   │   │   ├── 2ow9fplmimckhq2l3dsdbhplc.o
+        │   │   │   ├── 2qaspf4jbst1teifdo8v5upi9.o
+        │   │   │   ├── 2vfken2x1fg5rvmx7mjllpqkk.o
+        │   │   │   ├── 32rh582xj6g16kze9vexrydld.o
+        │   │   │   ├── 35bw4ud0nsxbkgc0in87vfvi8.o
+        │   │   │   ├── 3q79ziqz3mcju5875x0x30tlu.o
+        │   │   │   ├── 3w4juka7jgw0qokycs5xw1m8f.o
+        │   │   │   ├── 448gw6pcfuunmoph01hfqjb13.o
+        │   │   │   ├── 48fdn3m25i69v9iq5jvqursb7.o
+        │   │   │   ├── 4afwjwf3e7sfc2yqr1qfuap70.o
+        │   │   │   ├── 4fod1h981yv7w7jfxknflkrax.o
+        │   │   │   ├── 4mnocspznfyajvbcqrb7iv47a.o
+        │   │   │   ├── 4na8e929aex7mhycrqtpswl4t.o
+        │   │   │   ├── 4tre32put38ljv5qfq8fg9xct.o
+        │   │   │   ├── 4zp6plt1fo2lgftpcrdhivwex.o
+        │   │   │   ├── 52cvkcvslm9n92ffmnn4cjdfz.o
+        │   │   │   ├── 537nndj2jc2wghwyzp4812sab.o
+        │   │   │   ├── 5buf42suqzba04rddup3h17jk.o
+        │   │   │   ├── 5c4zrbeh0cs8m7xw5h120atmv.o
+        │   │   │   ├── 5kcf3yi7gqtdea7ayxtm7mdt3.o
+        │   │   │   ├── 5lqgv3zb0u6mecucf91r1fj28.o
+        │   │   │   ├── 5p97x32kzs5sokud29n77hv7g.o
+        │   │   │   ├── 5vwj1fodo8qgq9hrl9krrzeym.o
+        │   │   │   ├── 627b164kfl89vjxkg70c2y1bm.o
+        │   │   │   ├── 6houujyj7dtueg58sqfb0q4ut.o
+        │   │   │   ├── 6j5u3ec3z4drbzji7l0atyblg.o
+        │   │   │   ├── 6k3muw8smigmoipg6qa0eozvs.o
+        │   │   │   ├── 6u8chl8detnzgxr7wwntkf367.o
+        │   │   │   ├── 6wb3nvd71fepr7onpyak8v5w8.o
+        │   │   │   ├── 6zaozv8et8hdvwl93kf0shpha.o
+        │   │   │   ├── 79yo14y7ziwslz7ajc0xa9hj2.o
+        │   │   │   ├── 7i4dh6m2d9rmslmruc8j4dpib.o
+        │   │   │   ├── 7k8aselnwkd0kd2o23ad8ngu5.o
+        │   │   │   ├── 7m7m34im72uewcl7ntwsop7yh.o
+        │   │   │   ├── 7xssuklgixik7cw5km9n14g2j.o
+        │   │   │   ├── 83jb8hottoj1c7640q8n7v4s6.o
+        │   │   │   ├── 86qrzv71653grcvwns4r0v95v.o
+        │   │   │   ├── 87v83k5kth9yn0gauj0lyqchp.o
+        │   │   │   ├── 8d0dqjp0a601jegj59122lcn5.o
+        │   │   │   ├── 8jq7nlm9ntm04v5z4shmny9nc.o
+        │   │   │   ├── 8p9befjppk7blrb7ev8j9v2r8.o
+        │   │   │   ├── 8u40paomv9nle8bmjrj9ojiaw.o
+        │   │   │   ├── 8ukmu5d62kel9kr8teayixo2u.o
+        │   │   │   ├── 8upes1t26gt0wen7iam37touj.o
+        │   │   │   ├── 95ymfvdr28wauj60lv1ee1zv0.o
+        │   │   │   ├── 9a2qelkg58qxem14ge2oxeas4.o
+        │   │   │   ├── 9an2wct2qwow8vztfvgrmeuys.o
+        │   │   │   ├── 9egohxbns7sm3d3v9y6cvjvax.o
+        │   │   │   ├── 9i5i91vk5w1v93nz8o5dm46to.o
+        │   │   │   ├── 9lat8ue6x1wrlm85jqsylp8eq.o
+        │   │   │   ├── 9szx9rafk22na06cmjwyxbyav.o
+        │   │   │   ├── 9zd88thbedyznzdynt9qnr6k3.o
+        │   │   │   ├── a38k6zwcpbdlk4f2ffsaoybbb.o
+        │   │   │   ├── a7evsr7ays8dyqxpsz0au1oxp.o
+        │   │   │   ├── acq7yu0wae8izpe66t72t1rve.o
+        │   │   │   ├── aed51a67n6zm4g5zjkhn46exx.o
+        │   │   │   ├── akck6amzvvyd784ywicagsrvr.o
+        │   │   │   ├── amss807aqbuwwpo1yukks7nug.o
+        │   │   │   ├── az6xgmzi00k46rbothxvsa6mw.o
+        │   │   │   ├── b2kdtaaugc5kmb91ckd6pfoo6.o
+        │   │   │   ├── bnrdw36s7qpjp4oalgike3tm1.o
+        │   │   │   ├── bp6je7j3hillnnqpppzzj1jth.o
+        │   │   │   ├── bwdt0wkgolidll2gibcmuet2x.o
+        │   │   │   ├── bxryn6e0g5c1hsjqsem95up3c.o
+        │   │   │   ├── c118xu5wtv0zsf0be1oe0jkw6.o
+        │   │   │   ├── c3otktuvyyr9b2v2vf1p0mbof.o
+        │   │   │   ├── c7ynv3euzvtrc98nglb1e6shk.o
+        │   │   │   ├── c9b57skeo7ikymn6ld38rvlsh.o
+        │   │   │   ├── cli5m6vw8837k7tw286krwovo.o
+        │   │   │   ├── coqq7483bq9pm4ofqntv7xsc9.o
+        │   │   │   ├── cqc4bla559nyljfcdtyhbqdhb.o
+        │   │   │   ├── d5r95s1oj2q6ql5ylizncq5r1.o
+        │   │   │   ├── dep-graph.bin
+        │   │   │   ├── df005sym8h6fpfcnnb63iceph.o
+        │   │   │   ├── djmcnkfnu13yl6j7zolhrnsca.o
+        │   │   │   ├── djvkzx16l5q3i01op91jntmhg.o
+        │   │   │   ├── doh0d4uefv30s1i8dsmy8dnw7.o
+        │   │   │   ├── dxqtktnmc7h739p6vwjcusiyt.o
+        │   │   │   ├── dz87aut5v5o64f7il73489aj8.o
+        │   │   │   ├── e1a324cg82a2ju4f8cra4j69k.o
+        │   │   │   ├── edhmhpxkvr61cqj8akoh4hxrc.o
+        │   │   │   ├── eji0a0h4y1sfjkzm4aip92vxc.o
+        │   │   │   ├── ek584kr114d2q6m7a9ajz6i7t.o
+        │   │   │   ├── em3hc4xpsj73n397l9lslpd32.o
+        │   │   │   ├── enzvb3a0y2c4x2r1kyjetismt.o
+        │   │   │   ├── f4fwid9nbmnd6dne30wcpgykx.o
+        │   │   │   ├── query-cache.bin
+        │   │   │   └── work-products.bin
+        │   │   └── s-hg4xnvl7ay-15yh4km.lock
+        │   ├── regresion_lineal-1a82n7k0jjsar
+        │   │   ├── s-hg4wz8pe96-1fqwyod-8j892z6wde23mknpzx2u54b2k
+        │   │   │   ├── 1x8y9cd3yy0rry9s16f8lcymy.o
+        │   │   │   ├── 446nrevd8otpnfdvt51b45p1k.o
+        │   │   │   ├── 4eifofgtyly9ptpuxr5o6lme9.o
+        │   │   │   ├── 4tpdnikop4eiw1vg9uaky5dog.o
+        │   │   │   ├── 4wsvnkoj4pigl8ysypbsnw7jq.o
+        │   │   │   ├── 58vxq4xj7aqw78alwvw187sve.o
+        │   │   │   ├── 5b3ulibcywdyhqcfe5vo9fkbo.o
+        │   │   │   ├── 5gswctzh1ehxnoptsoomse5gb.o
+        │   │   │   ├── 5i78p0zzazt2kiizvg71qebkv.o
+        │   │   │   ├── 6m9quxi4vlgk1tfu1nhmek1jg.o
+        │   │   │   ├── 8lvha297t221r13l14wait3sf.o
+        │   │   │   ├── 93m5sp8zmeftotqx7m7wbniiz.o
+        │   │   │   ├── 9zf28jq65g3w1hhz292hjga5m.o
+        │   │   │   ├── awdkeo7cxyefhgt484b7nb1yj.o
+        │   │   │   ├── ax3unjiz4z057wqdftwk7197i.o
+        │   │   │   ├── ckx9vi397tm8fid7ofit7a5m3.o
+        │   │   │   ├── cv8mibgm70vrfwdhwlt2364a5.o
+        │   │   │   ├── dep-graph.bin
+        │   │   │   ├── du7m0bx630os1elcadh1k69og.o
+        │   │   │   ├── dyf9v6cfs3yobegqy0l6rplrx.o
+        │   │   │   ├── eh6fr1lqgq53zr4f2uze7a0ip.o
+        │   │   │   ├── eju2nltxnebaqj9nhx7t2jamp.o
+        │   │   │   ├── query-cache.bin
+        │   │   │   └── work-products.bin
+        │   │   └── s-hg4wz8pe96-1fqwyod.lock
+        │   └── regresion_lineal-2vuvbvmur4bgv
+        │       ├── s-hg4xcyho7h-1kxgkpr-aqmpbrvo81zvvzpg6mw9vm0d3
+        │       │   ├── 05wbd41frg4v4oeprmz8d988b.o
+        │       │   ├── 06e0t7e7zy3a20t4h7vezo9k2.o
+        │       │   ├── 0frjr1onq2pgedz9x8njkfdc8.o
+        │       │   ├── 0lwtymvmu63sc14a7fblqvb6c.o
+        │       │   ├── 0papfiqbmq2gqs78pwz9aj1nm.o
+        │       │   ├── 0un33o8ck1stgh3lrk7p58kbv.o
+        │       │   ├── 0uv80u4l5elyp03y2hx8oprv0.o
+        │       │   ├── 1hs325mdodxijlcf2wotne4qw.o
+        │       │   ├── 1jhh5wgnkaiih7qq6709y2sl9.o
+        │       │   ├── 1q73izk378a1wi4e2ksplbr4o.o
+        │       │   ├── 1tk52xewy0bnxzghfa3ezd5at.o
+        │       │   ├── 1vcv1b9270t499yhylaaj4k7o.o
+        │       │   ├── 2383lax75jm2ox2jrkjv3z781.o
+        │       │   ├── 2zrsiet1yqeopwx173blafonu.o
+        │       │   ├── 38elat6u9nghm4egomiy5wbu6.o
+        │       │   ├── 38z4bfe8x3kpikleace7rcn2p.o
+        │       │   ├── 3ppoo5r5ckj807w7wr6xhu8ta.o
+        │       │   ├── 3pte2mdary5azgtcsqzwqtn6m.o
+        │       │   ├── 3rero01dqrqj4sbiygt73ql0l.o
+        │       │   ├── 40nt1xhcgsbo51365gp87qhpp.o
+        │       │   ├── 438ui8dgozph2r1soj9lrpr1b.o
+        │       │   ├── 47mxlc6rhmpfu7ziiu8t3mz7f.o
+        │       │   ├── 4bb07jzrr3nj0xhxp68w4zk8u.o
+        │       │   ├── 4dzahfprzi3hy4a7pkcljs0bj.o
+        │       │   ├── 4zypkryj4uoa24gox9dn0w9ie.o
+        │       │   ├── 50ae30be9t7ujh090dut50juf.o
+        │       │   ├── 537d9aox4amog2cdjjozdyhpx.o
+        │       │   ├── 5gkv2ohn1pdmub4km8ujad1lp.o
+        │       │   ├── 5gxco1yzn294uoiwg4bku5ioy.o
+        │       │   ├── 5t8k5g5d0ssyej0e0lrw4yvux.o
+        │       │   ├── 5tmh3ncfvso19scxwy7hpjnd7.o
+        │       │   ├── 5ubmhzkhuzb4a56e2aznlp1wt.o
+        │       │   ├── 60cla53gacefzzvfjsghqblgr.o
+        │       │   ├── 62kje2d6z7yhixgw0lg7up5hu.o
+        │       │   ├── 6516fkfryl5i3cpnfa5tkv0ys.o
+        │       │   ├── 68tc5cp22i6rqryo3jajwalss.o
+        │       │   ├── 6dw4hd6ti4afh18ti1ljeotns.o
+        │       │   ├── 6rlwcxy5mxl0dlkjukvrtezeh.o
+        │       │   ├── 6u001gpu4andma8yd1fmoyu6k.o
+        │       │   ├── 78axtnhc5p2tptaait3aoyst4.o
+        │       │   ├── 7dcpvfa2fzq7nwnz7qcb5e739.o
+        │       │   ├── 7ng21zpst6dqqgmxye4vjktyl.o
+        │       │   ├── 7o3ku8pkkxartdtje205q28k3.o
+        │       │   ├── 85s7e3e82tbcjhk2gvppl6f7y.o
+        │       │   ├── 86f9h3laybjww1es9yv88o6hz.o
+        │       │   ├── 8785z1wneu480166uh9yfhbnk.o
+        │       │   ├── 87hzg61iq1uw9z33ozdx69hd1.o
+        │       │   ├── 8d0394lq62gmw7rblrtyvei50.o
+        │       │   ├── 8s14sdfw4a9eav9qkd1o2ql2f.o
+        │       │   ├── 8sv59w4ul9sbkd13jivfgqull.o
+        │       │   ├── 8zrzhae3ymb35kglpl4m8rfww.o
+        │       │   ├── 9f8ip80o94j71wye3xnch2s9n.o
+        │       │   ├── 9sblc36y8cq46zkir8v3hgi9w.o
+        │       │   ├── 9wojf29qelrtnxzb82gvaas1n.o
+        │       │   ├── 9ykfiwivv2knp9tj63nha2pkv.o
+        │       │   ├── ae8e41hdxunsw9vpqs8qdu02a.o
+        │       │   ├── am100tmqfemi43eylafqx7fxa.o
+        │       │   ├── amdrzzzf36r646358qbdafwgu.o
+        │       │   ├── anpveifpwlsm8b62r9fv1mjwf.o
+        │       │   ├── awpy55t8u3tmg9htbg0twsc6q.o
+        │       │   ├── b1uoh1rwfqditz43igwalojs1.o
+        │       │   ├── bbaq75l7oprp29j234neyzqs5.o
+        │       │   ├── bcmjjm6kr2clehene151e44xy.o
+        │       │   ├── c4pk87lw8loomjy5tz0um4rx3.o
+        │       │   ├── ca24whvjjeoa3d6vuxbgky17y.o
+        │       │   ├── cbssxycjlolkapi9d7ndhhmfz.o
+        │       │   ├── clcgykxzxefmjcpvirw76m3zs.o
+        │       │   ├── cm4c0du55unfypja19wr0gyfo.o
+        │       │   ├── cnzpkwzj25wgrn9wg0dutskdq.o
+        │       │   ├── cscurxbh76d2tqqxt4h6sgvzp.o
+        │       │   ├── dayewsaebpfrgjcea8ki001o1.o
+        │       │   ├── dd35mkhnpgkn5udk96qbb6ijm.o
+        │       │   ├── dep-graph.bin
+        │       │   ├── dqk8b4w4f82dax0qsjvbx8ade.o
+        │       │   ├── e8vrum6yaivyhrqfohoyk44z6.o
+        │       │   ├── elxddqe3txok78t8xfukbdqhw.o
+        │       │   ├── ez61h7oumf67k3yu01onn09ge.o
+        │       │   ├── ez6wfsb8oio8wbhw8p8627uxd.o
+        │       │   ├── query-cache.bin
+        │       │   └── work-products.bin
+        │       └── s-hg4xcyho7h-1kxgkpr.lock
+        ├── libregresion_lineal.d
+        ├── libregresion_lineal.so
+        ├── regresion-lineal
+        └── regresion-lineal.d
+
+50 directories, 398 files

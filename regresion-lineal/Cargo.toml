@@ -1,0 +1,14 @@
+[package]
+name = "regresion-lineal"
+version = "0.1.0"
+edition = "2024"
+
+# 1. Agregamos esta sección nueva para crear una librería de Python
+[lib]
+name = "regresion_lineal"
+crate-type = ["cdylib"]
+
+[dependencies]
+# 2. Agregamos el "traductor" PyO3
+pyo3 = { version = "0.20.0", features = ["extension-module"] }
+rayon = "1.8"
