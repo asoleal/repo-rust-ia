@@ -1,14 +1,19 @@
-# Binarios y carpetas de compilación
+# --- RUST ---
 /target/
 **/*.rs.bk
-*.pdb
+Cargo.lock
 
-# Logs de entrenamiento y modelos (opcional, pero recomendado para git limpio)
-training_log.csv
-modelo_modular_v3.json
-bench_model.json
+# --- DATASETS (Archivos pesados) ---
+/data/
+*.ubyte
+*.gz
 
-# Archivos de entorno y SO
+# --- MODELOS Y LOGS ---
+*.json
+*.csv
+*.log
+
+# --- SISTEMA ---
 .DS_Store
 Thumbs.db
 .env

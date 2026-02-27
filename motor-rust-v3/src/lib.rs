@@ -2,8 +2,10 @@ use ndarray::prelude::*;
 use ndarray_rand::RandomExt;
 use ndarray_rand::rand_distr::Normal;
 use serde::{Serialize, Deserialize};
-use std::fs::OpenOptions;
-use std::io::Write;
+use std::fs::File;
+use std::io::{Read, Write};
+
+pub mod mnist_loader;
 
 #[derive(Serialize, Deserialize, Clone, Copy)]
 pub enum Activacion { ReLU, LeakyReLU, Sigmoide }
@@ -19,15 +21,11 @@ pub struct CapaDensa {
     pub ultima_z: Option<Array2<f64>>,
 }
 
-// Implementación de Send + Sync manual para permitir Hogwild!
-unsafe impl Send for CapaDensa {}
-unsafe impl Sync for CapaDensa {}
-
 impl CapaDensa {
     pub fn new(entradas: usize, salidas: usize, activacion: Activacion) -> Self {
         let gain = match activacion {
             Activacion::Sigmoide => 1.0,
-            _ => 2.0_f64.sqrt(),
+            _ => 2.0_f64.sqrt(), // He initialization para ReLU/LeakyReLU
         };
         let std_dev = gain / (entradas as f64).sqrt();
         Self {
@@ -74,28 +72,22 @@ impl RedModular {
         self.capas.push(capa);
     }
 
-    // Forward modificado para no mutar el objeto global durante el test
-    pub fn forward_thread_safe(&self, x: &Array2<f64>) -> (Array2<f64>, Vec<Array2<f64>>, Vec<Array2<f64>>) {
+    pub fn forward(&mut self, x: &Array2<f64>) -> Array2<f64> {
         let mut activacion_actual = x.clone();
-        let mut entradas = Vec::new();
-        let mut zs = Vec::new();
-
-        for capa in &self.capas {
-            entradas.push(activacion_actual.clone());
+        for capa in &mut self.capas {
+            capa.ultima_entrada = Some(activacion_actual.clone());
             let z = activacion_actual.dot(&capa.pesos) + &capa.sesgos;
-            zs.push(z.clone());
+            capa.ultima_z = Some(z.clone());
             activacion_actual = capa.aplicar_activacion(&z);
         }
-        (activacion_actual, entradas, zs)
+        activacion_actual
     }
 
-    // El núcleo de Hogwild!: Actualización sin bloqueos usando punteros crudos
-    pub unsafe fn update_hogwild(&self, grad_salida: &Array2<f64>, entradas: &[Array2<f64>], zs: &[Array2<f64>]) {
+    pub fn backward(&mut self, grad_salida: &Array2<f64>) {
         let mut grad_actual = grad_salida.clone();
-        
-        for (i, capa) in self.capas.iter().enumerate().rev() {
-            let z = &zs[i];
-            let entrada = &entradas[i];
+        for capa in self.capas.iter_mut().rev() {
+            let z = capa.ultima_z.as_ref().unwrap();
+            let entrada = capa.ultima_entrada.as_ref().unwrap();
             let m = entrada.nrows() as f64;
 
             let delta = &grad_actual * &capa.derivada_activacion(z);
@@ -104,15 +96,22 @@ impl RedModular {
 
             grad_actual = delta.dot(&capa.pesos.t());
 
-            // ACTUALIZACIÓN ATÓMICA (HOGWILD): Modificamos los pesos directamente en memoria
-            let pesos_ptr = capa.pesos.as_ptr() as *mut f64;
-            for j in 0..capa.pesos.len() {
-                *pesos_ptr.add(j) -= grad_w.as_slice().unwrap()[j] * self.lr;
-            }
-            let sesgos_ptr = capa.sesgos.as_ptr() as *mut f64;
-            for j in 0..capa.sesgos.len() {
-                *sesgos_ptr.add(j) -= grad_b.as_slice().unwrap()[j] * self.lr;
-            }
+            capa.pesos = &capa.pesos - &(grad_w * self.lr);
+            capa.sesgos = &capa.sesgos - &(grad_b * self.lr);
         }
+    }
+
+    pub fn guardar(&self, ruta: &str) -> serde_json::Result<()> {
+        let json = serde_json::to_string_pretty(self)?;
+        let mut file = File::create(ruta).expect("Error al crear archivo");
+        file.write_all(json.as_bytes()).expect("Error al escribir");
+        Ok(())
+    }
+
+    pub fn cargar(ruta: &str) -> serde_json::Result<Self> {
+        let mut file = File::open(ruta).expect("Error al abrir archivo");
+        let mut contenido = String::new();
+        file.read_to_string(&mut contenido).expect("Error al leer");
+        serde_json::from_str(&contenido)
     }
 }
