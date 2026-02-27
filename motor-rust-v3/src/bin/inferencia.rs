@@ -19,8 +19,8 @@ fn dibujar_ascii(imagen: &ArrayView1<f64>) {
 }
 
 fn main() {
-    let mut red = RedModular::cargar("modelo_mnist_v3.json")
-        .expect("❌ Error al cargar modelo");
+    // El cargador ahora inicializa la estructura y mete las capas
+    let red = RedModular::cargar("modelo_mnist_v3.json");
 
     let x_test = mnist_loader::load_images("data/t10k-images-idx3-ubyte");
     let y_test = mnist_loader::load_labels("data/t10k-labels-idx1-ubyte");
@@ -32,26 +32,21 @@ fn main() {
     let imagen = x_test.slice(s![idx, ..]);
     let etiqueta_real = y_test.slice(s![idx, ..]);
 
-    println!("\n🎨 Visualización de la entrada:");
+    println!("\n🎨 Visualización de entrada (Indice {}):", idx);
     dibujar_ascii(&imagen);
 
-    let prediccion = red.forward(&imagen.to_owned().insert_axis(Axis(0)));
+    // En el forward ahora usamos la red cargada
+    let mut red_clon = red; 
+    let prediccion = red_clon.forward(&imagen.to_owned().insert_axis(Axis(0)));
 
-    let mut max_val = -1.0;
-    let mut pred_digit = 0;
-    for j in 0..10 {
-        if prediccion[[0, j]] > max_val {
-            max_val = prediccion[[0, j]];
-            pred_digit = j;
-        }
-    }
+    let (pred_digit, &confianza) = prediccion.row(0).iter().enumerate()
+        .max_by(|a, b| a.1.partial_cmp(b.1).unwrap()).unwrap();
 
     let real_digit = etiqueta_real.iter().position(|&x| x == 1.0).unwrap();
 
     println!("\n------------------------------");
-    println!("🖼️  Imagen Índice: {}", idx);
-    println!("🔮 Predicción:      {}", pred_digit);
-    println!("🎯 Valor Real:      {}", real_digit);
-    println!("📈 Confianza:       {:.2}%", max_val * 100.0);
+    println!("🔮 Predicción (Softmax): {} ", pred_digit);
+    println!("🎯 Valor Real:          {} ", real_digit);
+    println!("📈 Probabilidad:        {:.4}%", confianza * 100.0);
     println!("------------------------------\n");
 }
