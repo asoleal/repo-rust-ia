@@ -1,8 +1,9 @@
-use numpy::{PyReadonlyArray2};
 use pyo3::prelude::*;
 use ndarray::prelude::*;
 use ndarray_rand::RandomExt;
 use ndarray_rand::rand_distr::Normal;
+use numpy::{PyArray2, PyReadonlyArray2, ToPyArray}; 
+use ndarray::{Array2, Axis};
 use std::fs::File;
 use std::io::{Write, Read};
 use serde::{Serialize, Deserialize};
@@ -13,6 +14,27 @@ pub struct RedBatched {
     pub pesos: Vec<Array2<f64>>,
     pub sesgos: Vec<Array2<f64>>,
     pub lr: f64,
+}
+
+// Métodos internos de Rust (no visibles directamente en Python)
+impl RedBatched {
+    fn internal_forward(&self, x: &ArrayView2<f64>) -> (Vec<Array2<f64>>, Vec<Array2<f64>>) {
+        let mut zs = Vec::new();
+        let mut activaciones = vec![x.to_owned()];
+        let mut a_actual = x.to_owned();
+
+        for (i, (w, b)) in self.pesos.iter().zip(self.sesgos.iter()).enumerate() {
+            let z = a_actual.dot(w) + b;
+            zs.push(z.clone());
+            a_actual = if i < self.pesos.len() - 1 {
+                z.mapv(|val| if val > 0.0 { val } else { 0.0 }) // ReLU
+            } else {
+                z.mapv(|val| 1.0 / (1.0 + (-val).exp())) // Sigmoide
+            };
+            activaciones.push(a_actual.clone());
+        }
+        (zs, activaciones)
+    }
 }
 
 #[pymethods]
@@ -34,20 +56,8 @@ impl RedBatched {
         let y_arr = y.as_array();
         let batch_size = x_arr.shape()[0] as f64;
 
-        let mut zs = Vec::new();
-        let mut activaciones = vec![x_arr.to_owned()];
-        let mut a_actual = x_arr.to_owned();
-
-        for (i, (w, b)) in self.pesos.iter().zip(self.sesgos.iter()).enumerate() {
-            let z = a_actual.dot(w) + b;
-            zs.push(z.clone());
-            a_actual = if i < self.pesos.len() - 1 {
-                z.mapv(|val| if val > 0.0 { val } else { 0.0 })
-            } else {
-                z.mapv(|val| 1.0 / (1.0 + (-val).exp()))
-            };
-            activaciones.push(a_actual.clone());
-        }
+        // Usamos la función interna para evitar duplicar código
+        let (zs, activaciones) = self.internal_forward(&x_arr);
 
         let delta_salida = &activaciones[activaciones.len() - 1] - &y_arr;
         let loss = delta_salida.mapv(|v| v.powi(2)).mean().unwrap();
@@ -65,6 +75,16 @@ impl RedBatched {
             self.sesgos[i] -= &(grad_b * self.lr);
         }
         loss
+    }
+
+    pub fn predict(&self, input: PyReadonlyArray2<f64>) -> Py<PyArray2<f64>> {
+        let input_matrix = input.as_array();
+        let (_, activaciones) = self.internal_forward(&input_matrix);
+        let output = activaciones.last().unwrap().clone();
+        
+        Python::with_gil(|py| {
+            output.to_pyarray(py).to_owned()
+        })
     }
 
     pub fn save(&self, path: &str) -> PyResult<()> {
