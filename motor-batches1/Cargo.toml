@@ -1,0 +1,26 @@
+[package]
+name = "motor_batches"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "motor_batches"
+crate-type = ["rlib", "cdylib"]
+
+[[bin]]
+name = "rustia_cli"
+path = "src/main.rs"
+
+[dependencies]
+# PyO3 y Numpy solo se activan con la feature "python"
+pyo3 = { version = "0.21", features = ["extension-module"], optional = true }
+numpy = { version = "0.21", optional = true }
+ndarray = { version = "0.15", features = ["serde"] }
+ndarray-rand = "0.14"
+rand_distr = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[features]
+default = []
+python = ["dep:pyo3", "dep:numpy"]
