@@ -1,0 +1,21 @@
+[package]
+name = "motor_rust_native"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "motor_rust_native"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.21", features = ["extension-module"], optional = true }
+numpy = { version = "0.21", optional = true }
+ndarray = { version = "0.15", features = ["serde"] }
+ndarray-rand = "0.14"
+rand_distr = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[features]
+default = []
+python = ["dep:pyo3", "dep:numpy"]
