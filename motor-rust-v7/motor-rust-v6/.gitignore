@@ -1,0 +1,17 @@
+# Compilación de Rust
+/target/
+Cargo.lock
+
+# Modelos y Pesos (Artefactos de salida)
+*.json
+*.bin
+
+# Datos y Logs
+*.csv
+*.log
+/temp/
+
+# Sistema y IDEs
+.DS_Store
+.vscode/
+.idea/

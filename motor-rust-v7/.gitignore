@@ -1,0 +1,9 @@
+/target
+Cargo.lock
+*.json
+*.so
+*.dll
+*.dylib
+__pycache__/
+plot_v7.py
+bridge_test.py
