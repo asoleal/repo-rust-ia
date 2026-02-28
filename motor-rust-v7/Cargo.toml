@@ -1,0 +1,18 @@
+[package]
+name = "motor-rust-v7"
+version = "0.7.0"
+edition = "2021"
+
+[lib]
+name = "motor_rust_v7"
+path = "src/lib.rs"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+ndarray = { version = "0.15", features = ["serde", "rayon"] }
+rand = "0.8"
+rand_distr = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+rayon = "1.8"
+libc = "0.2"
