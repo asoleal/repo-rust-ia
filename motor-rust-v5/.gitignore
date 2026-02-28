@@ -1,0 +1,14 @@
+# Rust
+/target
+Cargo.lock
+
+# Modelos y Datos
+*.json
+*.csv
+/data/*.bin
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+.DS_Store
