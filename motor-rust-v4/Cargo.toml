@@ -1,0 +1,13 @@
+[package]
+name = "motor-rust-v4"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Aquí está el truco: añadimos "rayon" a las features de ndarray
+ndarray = { version = "0.15", features = ["serde", "rayon"] }
+ndarray-rand = "0.14"
+rayon = "1.5"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+image = "0.24"
