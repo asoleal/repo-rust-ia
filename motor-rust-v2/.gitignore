@@ -1,5 +1,6 @@
-/target
-Cargo.lock
+target/
 **/*.rs.bk
-.venv
+*.csv
 *.json
+.venv/
+__pycache__/
