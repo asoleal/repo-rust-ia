@@ -2,3 +2,14 @@
 .venv/
 __pycache__/
 *.so
+# ESP Rust/IDF caches (no subir)
+v8-prender-led/.embuild/
+v8-prender-led/.espressif/
+
+# Rust build
+v8-prender-led/target/
+
+# ESP-IDF build outputs
+v8-prender-led/build/
+v8-prender-led/sdkconfig
+v8-prender-led/sdkconfig.old
