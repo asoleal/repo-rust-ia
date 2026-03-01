@@ -1,0 +1,28 @@
+# --- Rust build artifacts ---
+/target/
+**/*.rs.bk
+
+# --- ESP-RS / embuild artifacts ---
+/.embuild/
+/build/
+
+# --- ESP-IDF generated configuration ---
+# Mantén versionado: sdkconfig.defaults
+# Ignora el generado por build:
+/sdkconfig
+/sdkconfig.old
+
+# --- Tools caches (si aparecen) ---
+/.espressif/
+/.idf-tools/
+
+# --- IDEs ---
+/.vscode/
+/.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log
