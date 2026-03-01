@@ -1,15 +1,51 @@
+# --- Rust (general) ---
 /target/
+**/target/
+**/*.rs.bk
+
+# --- Cargo tooling ---
+**/.cargo/.package-cache/
+**/.cargo/registry/
+**/.cargo/git/
+
+# --- ESP-IDF / esp-idf-sys / embuild caches ---
+**/.embuild/
+**/.espressif/
+**/build/
+**/sdkconfig
+**/sdkconfig.old
+**/dependencies.lock
+
+# --- CMake / Ninja ---
+**/CMakeFiles/
+**/CMakeCache.txt
+**/cmake_install.cmake
+**/build.ninja
+**/.ninja_deps
+**/.ninja_log
+
+# --- Logs / temp ---
+**/*.log
+**/*.tmp
+**/*.swp
+**/*~
+
+# --- OS / IDE ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Python ---
+**/__pycache__/
+**/*.pyc
 .venv/
-__pycache__/
-*.so
-# ESP Rust/IDF caches (no subir)
-v8-prender-led/.embuild/
-v8-prender-led/.espressif/
 
-# Rust build
-v8-prender-led/target/
+# --- Shared libs (si aparecen por builds locales) ---
+**/*.so
+**/*.dll
+**/*.dylib
 
-# ESP-IDF build outputs
-v8-prender-led/build/
-v8-prender-led/sdkconfig
-v8-prender-led/sdkconfig.old
+# --- Model artifacts ---
+# Queremos subir el modelo binario del firmware:
+!rust-ia/assets/model.bin
