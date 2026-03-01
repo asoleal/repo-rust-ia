@@ -1,0 +1,51 @@
+
+## .gitignore
+
+Este `.gitignore` es seguro para un proyecto Rust + ESP-IDF template (ignora `target/`, artefactos, y basura de editores). Si luego quieres versionar configs de VSCode u otros, lo ajustas.
+
+```gitignore
+# Rust / Cargo
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# ESP-IDF / build artifacts (si se generaran)
+sdkconfig
+sdkconfig.old
+build/
+dist/
+*.bin
+*.elf
+*.map
+*.o
+*.a
+
+# Logs
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Direnv / env files
+.env
+.env.*
+.direnv/
+
+# ESP Rust/IDF caches
+**/.embuild/
+**/.espressif/
+
+# Rust build
+**/target/
+**/*.rs.bk
+
+# ESP-IDF build outputs
+**/build/
+**/sdkconfig
+**/sdkconfig.old
